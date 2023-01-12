@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
           _getBackground(),
           _getCurve(),
           _getListButton(),
+          _showMainText(),
         ],
       ),
     );
@@ -282,6 +283,18 @@ class _HomeScreenState extends State<HomeScreen> {
           text: 'Pay all bills',
           backgroundColor: AppColor.mainColor,
         ),
+      ),
+    );
+  }
+
+  _showMainText() {
+    return const Positioned(
+      left: 40,
+      top: 70,
+      child: Text(
+        'Bills',
+        style: TextStyle(
+            fontSize: 70, fontWeight: FontWeight.bold, color: Colors.white),
       ),
     );
   }
