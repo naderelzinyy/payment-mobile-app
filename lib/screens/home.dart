@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment_app/component/colors.dart';
+import 'package:payment_app/custom_widgets/main_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -228,6 +229,19 @@ class _HomeScreenState extends State<HomeScreen> {
           itemBuilder: (_, idx) {
             return _getSingleBill();
           },
+        ),
+      ),
+    );
+  }
+
+  _getMainButton() {
+    return Positioned(
+      bottom: 40,
+      child: Container(
+        margin: const EdgeInsets.only(left: 127, right: 127),
+        child: MainButton(
+          text: 'Pay all bills',
+          backgroundColor: AppColor.mainColor,
         ),
       ),
     );
