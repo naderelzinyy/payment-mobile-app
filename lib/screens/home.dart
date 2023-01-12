@@ -21,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             _setUpperSection(),
             _setBills(),
+            _getMainButton(),
           ],
         ),
       ),
