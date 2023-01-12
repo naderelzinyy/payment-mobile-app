@@ -72,7 +72,42 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  _getButton() {
+  _showList() {
+    return showModalBottomSheet<dynamic>(
+        barrierColor: Colors.transparent,
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        context: context,
+        builder: (BuildContext bc) {
+          return Container(
+            height: MediaQuery.of(context).size.height - 240,
+            child: Stack(
+              children: [
+                Positioned(
+                  bottom: 0,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height - 310,
+                    color: AppColor.backGroundColor.withOpacity(0.5),
+                  ),
+                ),
+                Positioned(
+                    right: 58,
+                    child: Container(
+                      width: 60,
+                      height: 260,
+                      decoration: BoxDecoration(
+                          color: AppColor.mainColor,
+                          borderRadius: BorderRadius.circular(40),
+                          border: Border.all(width: 4, color: Colors.white)),
+                    ))
+              ],
+            ),
+          );
+        });
+  }
+
+  _getListButton() {
     return Positioned(
       right: 58,
       bottom: 5,
