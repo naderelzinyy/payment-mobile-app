@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment_app/component/colors.dart';
+import 'package:payment_app/custom_widgets/circular_button.dart';
 import 'package:payment_app/custom_widgets/main_button.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -95,13 +96,41 @@ class _HomeScreenState extends State<HomeScreen> {
                 Positioned(
                     right: 58,
                     child: Container(
+                      padding: const EdgeInsets.only(top: 10, bottom: 15),
                       width: 60,
                       height: 260,
                       decoration: BoxDecoration(
                           color: AppColor.mainColor,
                           borderRadius: BorderRadius.circular(40),
                           border: Border.all(width: 4, color: Colors.white)),
-                    ))
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CircularButton(
+                            iconColor: AppColor.mainColor,
+                            backgroundColor: AppColor.backGroundColor,
+                            icon: Icons.close,
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                          CircularButton(
+                            iconColor: AppColor.mainColor,
+                            backgroundColor: AppColor.backGroundColor,
+                            icon: Icons.history,
+                            onTap: () {},
+                            text: "History",
+                          ),
+                          CircularButton(
+                            iconColor: AppColor.mainColor,
+                            backgroundColor: AppColor.backGroundColor,
+                            icon: Icons.add,
+                            onTap: () {},
+                            text: 'Add Bill',
+                          ),
+                        ],
+                      ),
+                    )),
               ],
             ),
           );
