@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:payment_app/component/colors.dart';
 
@@ -23,6 +22,8 @@ class MainButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
+        padding:
+            const EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
