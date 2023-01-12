@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           _getBackground(),
           _getCurve(),
-          _getButton(),
+          _getListButton(),
         ],
       ),
     );
@@ -111,20 +111,23 @@ class _HomeScreenState extends State<HomeScreen> {
     return Positioned(
       right: 58,
       bottom: 5,
-      child: Container(
-        height: 60,
-        width: 60,
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('images/lines.png'),
-            ),
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 15,
-                offset: Offset(0, 1),
-                color: Colors.blueGrey,
-              )
-            ]),
+      child: GestureDetector(
+        onTap: _showList,
+        child: Container(
+          height: 60,
+          width: 60,
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('images/lines.png'),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 15,
+                  offset: Offset(0, 1),
+                  color: Colors.blueGrey,
+                )
+              ]),
+        ),
       ),
     );
   }
@@ -176,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           'Bogazici Elektric',
                           style: TextStyle(
                               color: AppColor.mainColor,
@@ -229,7 +232,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 28.5,
                 ),
-                const Text(
+                Text(
                   '890 TL',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
