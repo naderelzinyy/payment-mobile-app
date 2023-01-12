@@ -31,10 +31,10 @@ class MainButton extends StatelessWidget {
               width: 1.5,
               color: AppColor.selectColor,
             )),
-        child: const Text(
-          'Pay',
-          style: TextStyle(
-              fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+        child: Text(
+          text,
+          style: const TextStyle(
+              fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
     );
