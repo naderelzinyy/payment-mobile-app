@@ -311,6 +311,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: MainButton(
           text: 'Pay all bills',
           backgroundColor: AppColor.mainColor,
+          textColor: Colors.white,
+          onTap: () {
+            Get.to(() => const ReceiptScreen());
+          },
         ),
       ),
     );
