@@ -29,7 +29,7 @@ class MainButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             border: Border.all(
               width: 1.5,
-              color: AppColor.selectColor,
+              color: Colors.white,
             )),
         child: Text(
           text,
