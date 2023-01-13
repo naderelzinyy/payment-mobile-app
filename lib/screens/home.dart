@@ -203,9 +203,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(11),
                         border: Border.all(width: 3, color: Colors.orange),
-                        image: const DecorationImage(
+                        image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: AssetImage('images/brand1.png'),
+                          image: AssetImage(_controller.list[index]["img"]),
                         ),
                       ),
                     ),
