@@ -300,7 +300,7 @@ class _HomeScreenState extends State<HomeScreen> {
         removeTop: true,
         context: context,
         child: ListView.builder(
-          itemCount: 3,
+          itemCount: _controller.list.length,
           itemBuilder: (_, idx) {
             return _getSingleBill(idx);
           },
