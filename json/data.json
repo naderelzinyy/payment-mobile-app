@@ -1,0 +1,24 @@
+[
+  {
+    "brand": "Bogazici Elektric",
+    "date": "2-1-2023",
+    "status": "false",
+    "price": "4000.0",
+    "message": "Pay before"
+  },
+  {
+    "brand": "TurkTelecom",
+    "date": "2-1-2023",
+    "status": "false",
+    "price": "321.0",
+    "message": "Pay before"
+  },
+  {
+    "brand": "1Coastal City",
+    "date": "2-1-2023",
+    "status": "false",
+    "price": "1290.0",
+    "message": "Pay before"
+  }
+
+]
