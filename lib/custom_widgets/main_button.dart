@@ -1,5 +1,5 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:payment_app/component/colors.dart';
 
 class MainButton extends StatelessWidget {
   final Color? backgroundColor;
