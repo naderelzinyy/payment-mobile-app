@@ -166,7 +166,9 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  _getSingleBill() {
+  _getSingleBill(
+    int index,
+  ) {
     return Container(
       padding: const EdgeInsets.only(right: 14),
       margin: const EdgeInsets.only(top: 20, bottom: 10, right: 20),
@@ -214,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Bogazici Elektric',
+                          _controller.list[index]["brand"],
                           style: TextStyle(
                               color: AppColor.mainColor,
                               fontWeight: FontWeight.w700),
@@ -267,14 +269,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 28.5,
                 ),
                 Text(
-                  '890 TL',
+                  _controller.list[index]["price"] + ' \TL',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: AppColor.mainColor,
                       fontSize: 17),
                 ),
                 Text(
-                  'Due in 3 days',
+                  _controller.list[index]["message"],
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: AppColor.selectColor,
@@ -300,7 +302,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView.builder(
           itemCount: 3,
           itemBuilder: (_, idx) {
-            return _getSingleBill();
+            return _getSingleBill(idx);
           },
         ),
       ),
