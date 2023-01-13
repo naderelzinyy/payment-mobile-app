@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:payment_app/component/colors.dart';
+import 'package:payment_app/controllers/data_controller.dart';
 import 'package:payment_app/custom_widgets/circular_button.dart';
 import 'package:payment_app/custom_widgets/main_button.dart';
 import 'package:payment_app/screens/receipt.dart';
@@ -13,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final DataController _controller = Get.put(DataController());
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
