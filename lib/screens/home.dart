@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:payment_app/component/colors.dart';
 import 'package:payment_app/custom_widgets/circular_button.dart';
 import 'package:payment_app/custom_widgets/main_button.dart';
+import 'package:payment_app/screens/receipt.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
