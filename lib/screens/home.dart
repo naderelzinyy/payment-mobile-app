@@ -249,19 +249,29 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Column(
               children: [
-                Container(
-                  margin: const EdgeInsets.only(right: 9.5),
-                  width: 80,
-                  height: 30,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: AppColor.selectBackground),
-                  child: Center(
-                    child: Text(
-                      'Select',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: AppColor.selectColor),
+                GestureDetector(
+                  onTap: () {
+                    setState(() => _controller.list[index]["isSelected"] =
+                        !_controller.list[index]["isSelected"]);
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only(right: 9.5),
+                    width: 80,
+                    height: 30,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: _controller.list[index]["isSelected"] == true
+                            ? Colors.green
+                            : AppColor.backGroundColor),
+                    child: Center(
+                      child: Text(
+                        'Select',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: _controller.list[index]["isSelected"] == true
+                                ? Colors.white
+                                : AppColor.selectColor),
+                      ),
                     ),
                   ),
                 ),
