@@ -253,6 +253,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     setState(() => _controller.list[index]["isSelected"] =
                         !_controller.list[index]["isSelected"]);
+                    print(_controller.getSelectedBills.length);
                   },
                   child: Container(
                     margin: const EdgeInsets.only(right: 9.5),

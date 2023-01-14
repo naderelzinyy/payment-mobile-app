@@ -11,6 +11,13 @@ class DataController extends GetxController {
     super.onInit();
   }
 
+  get getSelectedBills {
+    return list
+        .where((element) => element["isSelected"])
+        .map((e) => e)
+        .toList();
+  }
+
   _loadData() async {
     var data = dataGetter.getUser();
     list.addAll(await data);
