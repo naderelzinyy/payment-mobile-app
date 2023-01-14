@@ -2,7 +2,7 @@
   {
     "brand": "Bogazici Elektric",
     "date": "2-1-2023",
-    "status": "false",
+    "isSelected": false,
     "price": "4000.0",
     "message": "Pay before",
     "img": "images/brand1.png"
@@ -10,7 +10,7 @@
   {
     "brand": "TurkTelecom",
     "date": "2-1-2023",
-    "status": "false",
+    "isSelected": false,
     "price": "321.0",
     "message": "Pay before",
     "img": "images/brand2.png"
@@ -19,7 +19,7 @@
   {
     "brand": "1Coastal City",
     "date": "2-1-2023",
-    "status": "false",
+    "isSelected": false,
     "price": "1290.0",
     "message": "Pay before",
     "img": "images/brand3.png"
