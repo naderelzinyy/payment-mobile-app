@@ -25,9 +25,13 @@ class BillInfoController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new BillInfo());
-
-
-
+        $grid -> column('id', 'ID');
+        $grid -> column('brand_name', 'Brand Name');
+        $grid -> column('brand_img', 'Brand Logo');
+        $grid -> column('price', 'Price');
+        $grid -> column('message', 'Description');
+        $grid -> column('brand_id', 'Brand ID');
+        $grid -> column('date', 'Last Payment Date');
         return $grid;
     }
 
