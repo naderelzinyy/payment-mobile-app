@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:payment_app/component/colors.dart';
+import 'package:payment_app/controllers/data_controller.dart';
 import 'package:payment_app/custom_widgets/circular_button.dart';
 import 'package:payment_app/custom_widgets/main_button.dart';
 import 'package:payment_app/screens/receipt.dart';
@@ -13,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final DataController _controller = Get.put(DataController());
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -164,7 +166,9 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  _getSingleBill() {
+  _getSingleBill(
+    int index,
+  ) {
     return Container(
       padding: const EdgeInsets.only(right: 14),
       margin: const EdgeInsets.only(top: 20, bottom: 10, right: 20),
@@ -201,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         border: Border.all(width: 3, color: Colors.orange),
                         image: const DecorationImage(
                           fit: BoxFit.cover,
-                          image: AssetImage('images/brand1.png'),
+                          image: AssetImage("images/brand1.png"),
                         ),
                       ),
                     ),
@@ -212,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Bogazici Elektric',
+                          _controller.list[index].brand_name,
                           style: TextStyle(
                               color: AppColor.mainColor,
                               fontWeight: FontWeight.w700),
@@ -245,34 +249,49 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Column(
               children: [
-                Container(
-                  margin: const EdgeInsets.only(right: 9.5),
-                  width: 80,
-                  height: 30,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: AppColor.selectBackground),
-                  child: Center(
-                    child: Text(
-                      'Select',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: AppColor.selectColor),
-                    ),
-                  ),
-                ),
+                GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (_controller.list[index].status == 0) {
+                          _controller.list[index].status = 1;
+                        } else {
+                          _controller.list[index].status = 0;
+                        }
+                        print(_controller.getSelectedBills.length);
+                      });
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 9.5),
+                      width: 80,
+                      height: 30,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: _controller.list[index].status == 1
+                              ? Colors.green
+                              : AppColor.backGroundColor),
+                      child: Center(
+                        child: Text(
+                          'Select',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: _controller.list[index].status == 1
+                                  ? Colors.white
+                                  : AppColor.selectColor),
+                        ),
+                      ),
+                    )),
                 const SizedBox(
                   height: 28.5,
                 ),
                 Text(
-                  '890 TL',
+                  '${_controller.list[index].price} \TL',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: AppColor.mainColor,
                       fontSize: 17),
                 ),
                 Text(
-                  'Due in 3 days',
+                  _controller.list[index].message,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: AppColor.selectColor,
@@ -296,9 +315,9 @@ class _HomeScreenState extends State<HomeScreen> {
         removeTop: true,
         context: context,
         child: ListView.builder(
-          itemCount: 3,
+          itemCount: _controller.list.length,
           itemBuilder: (_, idx) {
-            return _getSingleBill();
+            return _getSingleBill(idx);
           },
         ),
       ),

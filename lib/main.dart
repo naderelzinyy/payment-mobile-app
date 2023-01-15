@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:payment_app/screens/receipt.dart';
+import 'package:payment_app/screens/home.dart';
 
 void main() {
   runApp(const MyApp());
