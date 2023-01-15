@@ -9,7 +9,7 @@ class BillInfoController extends Controller
 {
     //
     public function index(){
-        $info = BillInfo::first();
+        $info = BillInfo::get();
         return json_decode($info);
     }
 
