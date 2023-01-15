@@ -203,9 +203,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(11),
                         border: Border.all(width: 3, color: Colors.orange),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           fit: BoxFit.cover,
-                          image: AssetImage(_controller.list[index]["img"]),
+                          image: AssetImage("images/brand1.png"),
                         ),
                       ),
                     ),
@@ -216,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          _controller.list[index]["brand"],
+                          _controller.list[index].brand_name,
                           style: TextStyle(
                               color: AppColor.mainColor,
                               fontWeight: FontWeight.w700),
@@ -250,44 +250,48 @@ class _HomeScreenState extends State<HomeScreen> {
             Column(
               children: [
                 GestureDetector(
-                  onTap: () {
-                    setState(() => _controller.list[index]["isSelected"] =
-                        !_controller.list[index]["isSelected"]);
-                    print(_controller.getSelectedBills.length);
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.only(right: 9.5),
-                    width: 80,
-                    height: 30,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: _controller.list[index]["isSelected"] == true
-                            ? Colors.green
-                            : AppColor.backGroundColor),
-                    child: Center(
-                      child: Text(
-                        'Select',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            color: _controller.list[index]["isSelected"] == true
-                                ? Colors.white
-                                : AppColor.selectColor),
+                    onTap: () {
+                      setState(() {
+                        if (_controller.list[index].status == 0) {
+                          _controller.list[index].status = 1;
+                        } else {
+                          _controller.list[index].status = 0;
+                        }
+                        print(_controller.getSelectedBills.length);
+                      });
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 9.5),
+                      width: 80,
+                      height: 30,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: _controller.list[index].status == 1
+                              ? Colors.green
+                              : AppColor.backGroundColor),
+                      child: Center(
+                        child: Text(
+                          'Select',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: _controller.list[index].status == 1
+                                  ? Colors.white
+                                  : AppColor.selectColor),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
+                    )),
                 const SizedBox(
                   height: 28.5,
                 ),
                 Text(
-                  _controller.list[index]["price"] + ' \TL',
+                  '${_controller.list[index].price} \TL',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: AppColor.mainColor,
                       fontSize: 17),
                 ),
                 Text(
-                  _controller.list[index]["message"],
+                  _controller.list[index].message,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: AppColor.selectColor,
