@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
+import 'package:payment_app/models/data_model.dart';
 import 'package:payment_app/services/data_getter.dart';
 
 class DataController extends GetxController {
-  var list = [].obs;
+  RxList<DataModel> list = <DataModel>[].obs;
   var dataGetter = DataGetter();
 
   @override
@@ -13,7 +14,7 @@ class DataController extends GetxController {
 
   get getSelectedBills {
     return list
-        .where((element) => element["isSelected"])
+        .where((element) => element.status == 0 ? false : true)
         .map((e) => e)
         .toList();
   }
