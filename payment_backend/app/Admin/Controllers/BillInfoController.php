@@ -31,6 +31,7 @@ class BillInfoController extends AdminController
         $grid -> column('price', 'Price');
         $grid -> column('message', 'Description');
         $grid -> column('brand_id', 'Brand ID');
+        $grid -> column('user_id', 'payment_users_id');
         $grid -> column('date', 'Last Payment Date');
         return $grid;
     }
