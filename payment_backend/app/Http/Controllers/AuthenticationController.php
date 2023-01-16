@@ -41,15 +41,12 @@ class AuthenticationController extends Controller
 
     public function signin(Request $request): \Illuminate\Http\JsonResponse
     {
-        // validate inputs
         $rules = [
             'email' => 'required',
             'password' => 'required|string'
         ];
         $request->validate($rules);
-        // find user email in users table
         $user = User::where('email', $request->email)->first();
-        // if user email found and password is correct
         if ($user && Hash::check($request->password, $user->password)) {
             $token = $user->createToken('Personal Access Token')->plainTextToken;
             $response = ['user' => $user, 'token' => $token];
