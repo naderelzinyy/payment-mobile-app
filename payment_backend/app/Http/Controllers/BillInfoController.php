@@ -17,11 +17,12 @@ class BillInfoController extends Controller
     {
         $info = new BillInfo;
         $info->brand_name = $request->post("brand_name");
+        $info->brand_img = $request->post("brand_img");
         $info->brand_id = $request->post("brand_id");
         $info->price = $request->post("price");
-        $info->status = $request->post("status");
+//        $info->status = $request->post("status");
         $info->message = $request->post("message");
-        $info->user_id = $request->post('payment_users_id');
+        $info->payment_users_id = $request->post('payment_users_id');
 
 
         if($info->save()){
