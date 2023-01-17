@@ -2,21 +2,21 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\BillInfo;
+use App\Models\Users;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class BillInfoController extends AdminController
+class UsersController extends AdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'BillInfo';
-
+    protected $title = 'Users';
+//
     /**
      * Make a grid builder.
      *
@@ -24,15 +24,16 @@ class BillInfoController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new BillInfo());
+        $grid = new Grid(new Users());
+
         $grid -> column('id', 'ID');
-        $grid -> column('brand_name', 'Brand Name');
-        $grid -> column('brand_img', 'Brand Logo');
-        $grid -> column('price', 'Price');
-        $grid -> column('message', 'Description');
-        $grid -> column('brand_id', 'Brand ID');
-        $grid -> column('user_id', 'payment_users_id');
-        $grid -> column('date', 'Last Payment Date');
+        $grid -> column('first_name', 'First Name');
+        $grid -> column('last_name', 'Last Name');
+        $grid -> column('email', 'Email');
+        $grid -> column('password', 'Password');
+        $grid -> column('created_at', 'Created At');
+        $grid -> column('updated_at', 'Updated At');
+
         return $grid;
     }
 
@@ -44,7 +45,7 @@ class BillInfoController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(BillInfo::findOrFail($id));
+        $show = new Show(Users::findOrFail($id));
 
 
 
@@ -58,7 +59,7 @@ class BillInfoController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new BillInfo());
+        $form = new Form(new Users());
 
 
 

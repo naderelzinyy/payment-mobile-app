@@ -4,6 +4,7 @@ import 'package:payment_app/component/colors.dart';
 import 'package:payment_app/controllers/data_controller.dart';
 import 'package:payment_app/custom_widgets/circular_button.dart';
 import 'package:payment_app/custom_widgets/main_button.dart';
+import 'package:payment_app/screens/initial.dart';
 import 'package:payment_app/screens/receipt.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -128,9 +129,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           CircularButton(
                             iconColor: AppColor.mainColor,
                             backgroundColor: AppColor.backGroundColor,
-                            icon: Icons.add,
-                            onTap: () {},
-                            text: 'Add Bill',
+                            icon: Icons.logout,
+                            onTap: () {
+                              Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const InitialScreen()),
+                                  (Route<dynamic> route) => false);
+                            },
+                            text: 'log out',
                           ),
                         ],
                       ),

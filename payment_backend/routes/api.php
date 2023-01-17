@@ -18,5 +18,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+Route::post('/signup',[App\Http\Controllers\AuthenticationController::class, 'signup']);
+Route::post('/signin',[App\Http\Controllers\AuthenticationController::class, 'signin']);
 Route::get('/billinfo',[App\Http\Controllers\BillInfoController::class, 'index']);
 Route::post('/submit',[App\Http\Controllers\BillInfoController::class, 'submit']);

@@ -1,6 +1,9 @@
 <?php
 
+use App\Admin\Controllers\BillInfoController;
+use App\Admin\Controllers\UsersController;
 use Illuminate\Routing\Router;
+
 
 Admin::routes();
 
@@ -13,5 +16,6 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('bill-infos', BillInfoController::class);
+    $router->resource('user-managements', UsersController::class);
 
 });
